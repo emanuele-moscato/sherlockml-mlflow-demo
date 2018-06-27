@@ -8,7 +8,7 @@ For more information, please read the [MLflow documentation](https://www.mlflow.
 
 MLflow can be installed using `pip` (`pip install -U mlflow`). This will make available both the Python interface and the command line interface. To use MLflow from Python, import it as any other library (`import mlflow`).
 
-The UI can be run from the command line with `mlflow ui`, but is exposed as a default through port 5000 (the option to specify an arbitrary port should have been added to the version of MLflow found on [GitHub](https://github.com/databricks/mlflow), but at the time of writing that version is broken and is not usable at all). Since the SherlockML interactive servers only expose port 8888, the UI cannot be seen via the browser as it is. To circumvent this problem, we can use nginx to "mirror" port 5000 over port 8888. To do so, follow the steps below. This however will prevent us from using both Jupyter and the MLflow UI on the same server: at the moment the best thing to do is having one server for each service.
+The UI can be run from the command line with `mlflow ui`, but is exposed as a default through port 5000 (the option to specify an arbitrary port should have been added to the version of MLflow found on [GitHub](https://github.com/databricks/mlflow), but at the time of writing that version is broken and is not usable at all). Since the SherlockML interactive servers only expose port 8888, the UI cannot be seen via the browser as it is. To circumvent this problem, we can use nginx to "mirror" port 5000 over port 8888. To do so, follow the steps below. This however will prevent us from using both Jupyter and the MLflow UI on the same server: at the moment the best thing to do is having one server for each service, both with MLflow installed.
 
 ### 1 - Install nginx
 Open the command line of a SherlockML server running Jupyter and execute `sudo apt-get install nginx`.
@@ -57,6 +57,10 @@ Open the terminal and run `nohup sudo nginx -c nginx_5000_to_8888.conf > /dev/nu
 
 ### 5 - Open the MLflow UI
 You should be able to opend the MLflow UI in the browser just by clicking on the name of the SherlockML server on which it runs.
+
+
+## Using MLflow for model selection
+Have a look at the example notebook to see how MLflow can be used to log multiple runs of a machine learning model corresponding to different choices of the parameters and to select the one that give the best performance.
 
 
 
