@@ -53,7 +53,7 @@ There are two possible ways to do this. Notice that in order to be able to see t
 Open a terminal and run `sudo nginx -c nginx_5000_to_8888.conf`, then open another terminal on the same server and run `mlflow ui`.
 
 #### Run nginx as a background process and the MLflow UI as a foreground process
-Open the terminal and run `nohup sudo nginx -c nginx_new.conf > /dev/null 2>&1 &` to run nginx in the background. Then run `mlflow ui`.
+Open the terminal and run `nohup sudo nginx -c nginx_5000_to_8888.conf > /dev/null 2>&1 &` to run nginx in the background. Then run `mlflow ui`.
 
 ### 5 - Open the MLflow UI
 You should be able to opend the MLflow UI in the browser just by clicking on the name of the SherlockML server on which it runs.
